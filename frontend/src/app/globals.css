@@ -1,0 +1,80 @@
+@import "tailwindcss";
+
+:root {
+  /* Company Colors */
+  --primary-navy: #1C1C4E;
+  --primary-blue: #1AB6E8;
+  --primary-light: #E1F6FB;
+  --secondary-gray: #F9FAFB;
+  --secondary-charcoal: #3A3A48;
+  --secondary-yellow: #F1C40F;
+
+  /* Base Theme Colors */
+  --background: var(--secondary-gray);
+  --foreground: var(--primary-navy);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: var(--primary-navy);
+    --foreground: var(--primary-light);
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Wave Animation */
+.wave-animation {
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  top: -50%;
+  left: -50%;
+  background: radial-gradient(circle at center, transparent 30%, var(--primary-blue) 70%);
+  animation: wave 15s infinite linear;
+  opacity: 0.1;
+}
+
+@keyframes wave {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.scrollbar-hide {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+/* Custom styles for featured products */
+.featured-product-card {
+  transition: all 0.3s ease;
+  background: var(--secondary-gray);
+  border: 1px solid var(--primary-light);
+}
+
+.featured-product-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  border-color: var(--primary-blue);
+}
